@@ -3,17 +3,17 @@
 
 namespace App\Tests\Controller;
 
-use PHPUnit\Framework\TestCase;
-use App\Controller\RandomController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-
-class RandomTest extends TestCase
+class RandomTest extends WebTestCase
 {
-    public function testNumberReturnCorrectResponseInstance() {
-        $randomController = new RandomController();
-        $result = $randomController->number();
+    public function testShowShowRandomNumber() {
+        $client = static::createClient();
 
-        $this->assertInstanceOf(Response::class, $result);
+        $client->request('GET', 'random/number');
+
+        $response = $client->getResponse();
+
+        $this->assertEquals(200, $response->getStatusCode());
     }
 }

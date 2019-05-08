@@ -3,13 +3,15 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
-class RandomController
+class RandomController extends AbstractController
 {
     public function number() {
-        return new Response($this->getRandomNumber());
+        return $this->render('random/number.html.twig', [
+            'number' => $this->getRandomNumber(),
+        ]);
     }
 
     private function getRandomNumber() {

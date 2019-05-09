@@ -1,7 +1,13 @@
-{% if isSuccess != true %}
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
-{% else %}
-    <p>Thanks for your message!</p>
-{% endif %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block body %}
+    {% if isSuccess != true %}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    {% else %}
+        <p>Thanks for your message!</p>
+    {% endif %}
+{% endblock %}

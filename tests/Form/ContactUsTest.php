@@ -39,9 +39,4 @@ class ContactUsTest extends TypeTestCase
             $this->assertArrayHasKey($key, $children);
         }
     }
-
-    public function testShowContactUsPage() {
-        $client = static::createClient();
-    }
-
 }

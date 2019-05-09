@@ -4,7 +4,7 @@
 namespace App\Tests\Form;
 
 
-use App\Entity\Contact;
+use App\Entity\ContactUsForm;
 use App\Form\ContactType;
 use Symfony\Component\Form\Test\TypeTestCase;
 
@@ -17,11 +17,11 @@ class ContactUsTest extends TypeTestCase
             'message' => 'Message'
         ];
 
-        $contactUsFormToCompare = new Contact();
+        $contactUsFormToCompare = new ContactUsForm();
 
         $form = $this->factory->create(ContactType::class, $contactUsFormToCompare);
 
-        $contactUsForm = new Contact();
+        $contactUsForm = new ContactUsForm();
         $contactUsForm->setName($formData['name']);
         $contactUsForm->setEmail($formData['email']);
         $contactUsForm->setMessage($formData['message']);
@@ -38,6 +38,10 @@ class ContactUsTest extends TypeTestCase
         foreach (array_keys($formData) as $key) {
             $this->assertArrayHasKey($key, $children);
         }
+    }
+
+    public function testShowContactUsPage() {
+        $client = static::createClient();
     }
 
 }

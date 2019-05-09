@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Contact;
+use App\Entity\ContactUsForm;
 use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +11,7 @@ class ContactUsController extends AbstractController
 {
     public function index(Request $request)
     {
-        $contact = new Contact();
+        $contact = new ContactUsForm();
 
         $form = $this->createForm(ContactType::class, $contact);
 

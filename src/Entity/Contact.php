@@ -3,11 +3,27 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Contact
 {
+    /**
+     * @Assert\NotBlank
+     */
     protected $name;
+
+    /**
+     * @Assert\NotBlank
+     *
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
+     */
     protected $email;
+
+    /**
+     * @Assert\NotBlank
+     */
     protected $message;
 
     /**

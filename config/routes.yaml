@@ -5,3 +5,7 @@
 app_random_number:
   path: /random/number
   controller: App\Controller\RandomController::number
+
+app_contact_us:
+  path: /contact-us
+  controller: App\Controller\ContactUsController::index
